@@ -25,17 +25,16 @@ if __name__ == '__main__':
     Instrumento.objects.all().delete()
 
     fake = faker.Faker('pt_BR')
-    instrumentos = ['Violino', 'Violoncelo', 'Trombone','Clarinete','Sax Terno','Sax Reto','Trombone']
-    localidades = ['Jardim Cardoso','Vitória Régia']
-    estados_civis = ['Casado','Solteiro']
-    operadoras = ['Vivo','Claro','Tim']
-    
-    django_categories = [Instrumento(nome=nome) for nome in instrumentos]
+    instrumentos = ['Violino', 'Violoncelo', 'Trombone',
+                    'Clarinete', 'Sax Terno', 'Sax Reto', 'Trombone']
+    localidades = ['Jardim Cardoso', 'Vitória Régia']
+    estados_civis = ['Casado', 'Solteiro']
+    operadoras = ['Vivo', 'Claro', 'Tim']
 
+    django_categories = [Instrumento(nome=nome) for nome in instrumentos]
 
     for category in django_categories:
         category.save()
-        
 
     django_contacts = []
 
@@ -53,13 +52,13 @@ if __name__ == '__main__':
         django_contacts.append(
             Aluno(
                 nome_completo=nome_completo,
-                localidade = localidade,
-                estado_civil= estado_civil,
-                telefone= telefone,
-                operadora= operadora,
+                localidade=localidade,
+                estado_civil=estado_civil,
+                telefone=telefone,
+                operadora=operadora,
                 date_nascimento=date_nascimento,
-                inicio_gem = inicio_gem,
-                instrumento = instrumento
+                inicio_gem=inicio_gem,
+                instrumento=instrumento
             )
         )
 
