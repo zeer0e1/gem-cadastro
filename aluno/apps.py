@@ -1,6 +1,6 @@
 from django.apps import AppConfig
 
 
-class CadastroConfig(AppConfig):
+class AlunoConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
-    name = 'cadastro'
+    name = 'aluno'

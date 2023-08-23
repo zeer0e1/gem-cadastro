@@ -1,8 +1,8 @@
 from django.urls import path
 from dashboard import views
 
-app_name = 'cadastro'
+app_name = 'aluno'
 
 urlpatterns = [
-    path('cadastro', views.index, name='index'),
+    path('aluno', views.index, name='index'),
 ]
