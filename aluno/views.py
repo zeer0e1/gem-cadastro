@@ -16,4 +16,20 @@ def index(request):
         'aluno/index.html',
         context
     )
+
+
+def about(request):
+
+    alunos = Aluno.objects
+
+    context = {
+        'alunos': alunos
+    }
+
+    return render(
+        request,
+        'aluno/about-us.html',
+        context
+
+    )
 # Create your views here.

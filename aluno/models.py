@@ -31,8 +31,7 @@ class Instrumento(models.Model):
     class Meta:
         verbose_name = 'Instrumento'
         verbose_name_plural = 'Instrumentos'
-        
-    
+
     nome = models.CharField(max_length=300)
 
     def __str__(self) -> str:
@@ -46,9 +45,9 @@ class Aluno(models.Model):
     telefone = models.CharField(max_length=200)
     operadora = models.CharField(max_length=20)
     date_nascimento = models.DateField()
-    data_batismo = models.DateField(blank=True,null=True)
+    data_batismo = models.DateField(blank=True, null=True)
     inicio_gem = models.DateField()
-    instrumento = models.ForeignKey(Instrumento, 
+    instrumento = models.ForeignKey(Instrumento,
                                     on_delete=models.DO_NOTHING,
                                     )
 

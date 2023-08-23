@@ -19,6 +19,8 @@ from django.urls import path, include
 from django.conf import settings
 
 urlpatterns = [
-    path('', include('aluno.urls'),),
+    path('', include('aluno.urls')),
+    path('index/', include('aluno.urls')),
+    path('about-us/', include('aluno.urls')),
     path('admin/', admin.site.urls),
 ]

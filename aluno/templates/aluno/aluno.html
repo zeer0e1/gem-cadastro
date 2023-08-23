@@ -1,0 +1,24 @@
+{% extends 'global/base.html' %}
+
+{% include 'global/partials/_header.html' %}
+
+{% block content %}
+    <div class="single-aluno">
+       <h1>{{aluno.nome_completo}}</h1>
+       <p><b>ID:</b> {{aluno.id}}</p>
+       <p><b>Localidade:</b> {{aluno.localidade}}</p>
+       <p><b>Instrumento:</b> {{aluno.instrumento.nome}}</p>
+       <p><b>Estado Civil:</b> {{aluno.estado_civil}}</p>
+       <p><b>Telefone:</b> {{aluno.telefone}}</p>
+       <p><b>Operadora:</b> {{aluno.operadora}}</p>
+       <p><b>Data Nascimento:</b> {{aluno.date_nascimento}}</p>
+       <p><b>Data Batismo:</b> {% if aluno.data_batismo %}
+                                {{aluno.data_batismo}}  
+                                {% else %}
+                                                          
+        {% endif %}</p>
+        <p><b>Data de inicio do GEM:</b> {{aluno.inicio_gem}}</p>
+
+    </div>
+{% endblock content %}
+
