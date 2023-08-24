@@ -16,6 +16,8 @@
 <body>
   <main class="content">
     {% block content %}
+
+    {% if page_obj %}
      <div class="responsive-table">
       <table class="alunos-table">
         <caption class="table-caption">
@@ -30,7 +32,7 @@
           </tr>
         </thead>
         <tbody>
-          {% for aluno in alunos %}
+          {% for aluno in page_obj %}
             <tr class="table-row">
               <td class="table-cel"> 
                 <a href="{% url 'aluno:aluno' aluno.id %}" 
@@ -52,9 +54,19 @@
         </tbody>
       </table>
      </div>
-    {% endblock content %}
+    {% include 'global/partials/_pagination.html' %}
+
+     {% else %}
+     <div class="single-aluno">
+      <h1>Aluno não encontrado</h1>
+  
+   </div>
+
+     {% endif %}
+     {% endblock content %}
     
 
-  </main>
+   
+    </main>
 </body>
 </html>

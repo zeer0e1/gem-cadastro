@@ -1,29 +1,31 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from aluno.models import Aluno
 from django.db.models import Q
+from django.core.paginator import Paginator
+# -------------------------------------------------
 
 
 def index(request):
-    alunos = Aluno.objects
-
-    context = {
-        'alunos': alunos,
-        'site_title': 'Dashboard'
-    }
-
-    return render(
-        request,
-        'aluno/site/index.html',
-        context
-    )
+    data_points = [
+        {"label": "apple",  "y": 10},
+        {"label": "orange", "y": 15},
+        {"label": "banana", "y": 25},
+        {"label": "mango",  "y": 30},
+        {"label": "grape",  "y": 28}
+    ]
+    return render(request, 'aluno/site/index.html', {"data_points": data_points})
 
 
 def about(request):
     alunos = Aluno.objects.all() \
-        .order_by('-id')[:10]
+        .order_by('-id')
+
+    paginator = Paginator(alunos, 10)
+    page_number = request.GET.get("page")
+    page_obj = paginator.get_page(page_number)
 
     context = {
-        'alunos': alunos,
+        'page_obj': page_obj,
         'site_title': 'Alunos'
     }
     return render(
@@ -48,8 +50,12 @@ def search(request):
     )\
         .order_by('-id')
 
+    paginator = Paginator(alunos, 10)
+    page_number = request.GET.get("page")
+    page_obj = paginator.get_page(page_number)
+
     context = {
-        'alunos': alunos,
+        'page_obj': page_obj,
         'site_title': 'Alunos'
     }
     return render(
