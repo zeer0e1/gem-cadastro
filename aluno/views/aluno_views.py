@@ -9,6 +9,7 @@ import json
 
 
 def index(request):
+
     alunos_por_instrumento = Aluno.objects.values(
         'instrumento__nome').annotate(quantidade_alunos=Count('id'))
 
@@ -32,9 +33,16 @@ def index(request):
         for resultado in alunos_por_localidade
     ]
 
-    return render(request, 'aluno/site/index.html',
-                  {"alunosPorInstrumento": json.dumps(serialized_data),
-                   "alunosPorLocalidade": json.dumps(serialized_data2)})
+    context = {
+        'site_title': 'Alunos'
+    }
+
+    return render(request,
+                  'aluno/site/index.html',
+                  {'context': context,
+                   "alunosPorInstrumento": json.dumps(serialized_data),
+                   "alunosPorLocalidade": json.dumps(serialized_data2)
+                   })
 
 
 def about(request):
