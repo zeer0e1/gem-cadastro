@@ -38,9 +38,20 @@ class Instrumento(models.Model):
         return self.nome
 
 
+class Localidade(models.Model):
+    class Meta:
+        verbose_name = 'Localidade'
+        verbose_name_plural = 'Localidades'
+
+    localidade = models.CharField(max_length=300)
+
+    def __str__(self) -> str:
+        return self.localidade
+
+
 class Aluno(models.Model):
     nome_completo = models.CharField(max_length=200)
-    localidade = models.CharField(max_length=200)
+    localidade = models.ForeignKey(Localidade, on_delete=models.DO_NOTHING)
     estado_civil = models.CharField(max_length=100)
     telefone = models.CharField(max_length=200)
     operadora = models.CharField(max_length=20)

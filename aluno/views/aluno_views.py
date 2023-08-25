@@ -2,18 +2,39 @@ from django.shortcuts import render, get_object_or_404, redirect
 from aluno.models import Aluno
 from django.db.models import Q
 from django.core.paginator import Paginator
+from django.db.models import Count
+
 # -------------------------------------------------
+import json
 
 
 def index(request):
-    data_points = [
-        {"label": "apple",  "y": 10},
-        {"label": "orange", "y": 15},
-        {"label": "banana", "y": 25},
-        {"label": "mango",  "y": 30},
-        {"label": "grape",  "y": 28}
+    alunos_por_instrumento = Aluno.objects.values(
+        'instrumento__nome').annotate(quantidade_alunos=Count('id'))
+
+    alunos_por_localidade = Aluno.objects.values(
+        'localidade__localidade').annotate(quantidades=Count('id')
+
+                                           )
+    serialized_data = [
+        {
+            'label': resultado['instrumento__nome'],
+            'y': resultado['quantidade_alunos']
+        }
+        for resultado in alunos_por_instrumento
     ]
-    return render(request, 'aluno/site/index.html', {"data_points": data_points})
+
+    serialized_data2 = [
+        {
+            'label': resultado['localidade__localidade'],
+            'y': resultado['quantidades']
+        }
+        for resultado in alunos_por_localidade
+    ]
+
+    return render(request, 'aluno/site/index.html',
+                  {"alunosPorInstrumento": json.dumps(serialized_data),
+                   "alunosPorLocalidade": json.dumps(serialized_data2)})
 
 
 def about(request):

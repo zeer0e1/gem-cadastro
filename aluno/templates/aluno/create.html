@@ -9,7 +9,7 @@
 
     <h2>Aluno</h2>
 
-    <form action=" {% url 'aluno:create' %}"
+    <form action="{{form_action}}"
     method="POST"
     enctype="multipart/form-data">
     
@@ -20,14 +20,34 @@
         {% for field in form %}
 
             <div class="form-group">
-                <label for="{{field.id_for_labe}}">{{field.label}}</label>
-                <input type="text" name="nome_completo" maxlength="255" id="id_nome_completo">
+                <label for="{{field.id_for_label}}">{{field.label}}</label>
+                {{field}}
+                {{field.errors}}
+           
             </div>
 
         {% endfor %}
     </div>
 
+    {% if form.non_field_errors %}
+        <div class="form-content">
+            <div class="form-content">
+                <div class="form-group">
+                    <div class="message error">
+                        {{form.non_field_errors}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+    
+    {% endif %}
 
+    <div class="form-content">
+        <div class="form-group">
+          <button class="btn" type="submit">Send</button>
+        </div>
+      </div>
     </form>
 </div>
 {% endblock content %}

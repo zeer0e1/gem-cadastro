@@ -8,7 +8,7 @@ import django
 from django.conf import settings
 
 DJANGO_BASE_DIR = Path(__file__).parent.parent
-NUMBER_OF_OBJECTS = 1000
+NUMBER_OF_OBJECTS = 50
 
 sys.path.append(str(DJANGO_BASE_DIR))
 os.environ['DJANGO_SETTINGS_MODULE'] = 'project.settings'
@@ -19,29 +19,35 @@ django.setup()
 if __name__ == '__main__':
     import faker
 
-    from aluno.models import Instrumento, Aluno
+    from aluno.models import Instrumento, Aluno, Localidade
 
     Aluno.objects.all().delete()
     Instrumento.objects.all().delete()
+    Localidade.objects.all().delete()
 
     fake = faker.Faker('pt_BR')
     instrumentos = ['Violino', 'Violoncelo', 'Trombone',
-                    'Clarinete', 'Sax Terno', 'Sax Reto', 'Trombone']
-    localidades = ['Jardim Cardoso', 'Vitória Régia']
+                    'Clarinete', 'Sax Tenor', 'Sax Reto', 'Trombone']
+    localidades = ['Jardim Cardoso', 'Vitória Régia','Itavuvu','Santa Lucia']
     estados_civis = ['Casado', 'Solteiro']
     operadoras = ['Vivo', 'Claro', 'Tim']
 
     django_categories = [Instrumento(nome=nome) for nome in instrumentos]
+    django_categories2 = [Localidade(localidade=localidade)
+                          for localidade in localidades]
 
     for category in django_categories:
         category.save()
+
+    for category2 in django_categories2:
+        category2.save()
 
     django_contacts = []
 
     for _ in range(NUMBER_OF_OBJECTS):
         profile = fake.profile()
         nome_completo = profile['name']
-        localidade = choice(localidades)
+        localidade = choice(django_categories2)
         estado_civil = choice(estados_civis)
         telefone = fake.phone_number()
         operadora = choice(operadoras)

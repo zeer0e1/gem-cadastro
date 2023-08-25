@@ -9,13 +9,15 @@ urlpatterns = [
     path('search/', views.search, name='search'),
 
     path('alunos/', views.about, name='about-us'),
-    
+
     path('<int:aluno_id>/', views.aluno, name='aluno'),
-    
-    
+
+
     # aluno CRUD
     path('aluno/<int:aluno_id>/detail', views.aluno, name='aluno'),
     path('aluno/create/', views.create, name='create'),
-   
+    path('aluno/<int:aluno_id>/update', views.update, name='update'),
+    path('aluno/<int:aluno_id>/delete', views.delete, name='delete'),
+
 
 ]

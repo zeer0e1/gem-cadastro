@@ -19,6 +19,24 @@
         {% endif %}</p>
         <p><b>Data de inicio do GEM:</b> {{aluno.inicio_gem}}</p>
 
+        <div class="contact-links">
+            <a class="btn btn-link" href="{% url 'aluno:update' aluno.id %}">Atualizar</a>
+        
+            <form action=" {% url 'aluno:delete' aluno.id %}" method="POST">
+                {% csrf_token %}
+
+                {% if confirmation == 'no' %}
+                    <input type="hidden" name="confirmation" value="yes">
+                    <button class="btn btn-link btn-delete" type="submit">Confirma?</button>
+                
+                {% else %}
+                    <button class="btn btn-link btn-delete" type="submit">Deletar</button>
+
+                {% endif %}
+
+
+            </form>
+        </div>
     </div>
 {% endblock content %}
 
