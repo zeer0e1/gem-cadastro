@@ -1,0 +1,34 @@
+{% extends 'global/base.html' %}
+
+{% include 'global/partials/_header.html' %}
+
+
+{% block content %}
+
+    <div class="form-wrapper">
+
+    <h2>Aluno</h2>
+
+    <form action=" {% url 'aluno:create' %}"
+    method="POST"
+    enctype="multipart/form-data">
+    
+    {% csrf_token %}
+
+    <div class="form-content">
+
+        {% for field in form %}
+
+            <div class="form-group">
+                <label for="{{field.id_for_labe}}">{{field.label}}</label>
+                <input type="text" name="nome_completo" maxlength="255" id="id_nome_completo">
+            </div>
+
+        {% endfor %}
+    </div>
+
+
+    </form>
+</div>
+{% endblock content %}
+
