@@ -1,0 +1,28 @@
+{% extends 'global/base.html' %}
+
+{% include 'global/partials/_header.html' %}
+
+
+{% block content %}
+
+    <div class="form-wrapper">
+
+    <h2>Login</h2>
+
+    {% if user.is_authenticated %}
+    
+        <p>
+            Você fez login com {{user.username}}
+            Clique <a href=" {% url 'aluno:logout' %}">aqui</a> para sair.
+        </p>
+        
+    {% else %}
+
+        {% include './partials/_userform.html' %}
+    
+    {% endif %}
+
+
+</div>
+{% endblock content %}
+

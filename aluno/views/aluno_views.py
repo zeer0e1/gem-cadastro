@@ -3,11 +3,14 @@ from aluno.models import Aluno
 from django.db.models import Q
 from django.core.paginator import Paginator
 from django.db.models import Count
+from django.contrib.auth.decorators import login_required
+
 
 # -------------------------------------------------
 import json
 
 
+@login_required(login_url='aluno:login')
 def index(request):
 
     alunos_por_instrumento = Aluno.objects.values(
@@ -45,6 +48,7 @@ def index(request):
                    })
 
 
+@login_required(login_url='aluno:login')
 def about(request):
     alunos = Aluno.objects.all() \
         .order_by('-id')
@@ -65,6 +69,7 @@ def about(request):
     )
 
 
+@login_required(login_url='aluno:login')
 def search(request):
     search_value = request.GET.get('q').strip()
 
@@ -95,6 +100,7 @@ def search(request):
     )
 
 
+@login_required(login_url='aluno:login')
 def aluno(request, aluno_id):
 
     # single_aluno = Aluno.objects.filter(pk=aluno_id).last()

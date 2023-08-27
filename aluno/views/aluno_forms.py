@@ -2,8 +2,10 @@ from django.shortcuts import render, redirect, get_object_or_404
 from aluno.forms import AlunoForm
 from django.urls import reverse
 from aluno.models import Aluno
+from django.contrib.auth.decorators import login_required
 
 
+@login_required(login_url='aluno:login')
 def create(request):
 
     form_action = reverse('aluno:create')
@@ -35,6 +37,7 @@ def create(request):
                   )
 
 
+@login_required(login_url='aluno:login')
 def update(request, aluno_id):
     aluno = get_object_or_404(Aluno, pk=aluno_id)
     form_action = reverse('aluno:update', args=(aluno_id,))
@@ -65,6 +68,7 @@ def update(request, aluno_id):
                   )
 
 
+@login_required(login_url='aluno:login')
 def delete(request, aluno_id):
     aluno = get_object_or_404(Aluno, pk=aluno_id)
 

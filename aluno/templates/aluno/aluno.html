@@ -3,7 +3,9 @@
 {% include 'global/partials/_header.html' %}
 
 {% block content %}
-    <div class="single-aluno">
+
+{{ user.groups.all.0 }}
+<div class="single-aluno">
        <h1>{{aluno.nome_completo}}</h1>
        <p><b>ID:</b> {{aluno.id}}</p>
        <p><b>Localidade:</b> {{aluno.localidade}}</p>
