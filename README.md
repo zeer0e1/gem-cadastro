@@ -37,6 +37,10 @@ Antes de iniciar aplicação podemos executar um script feito em python que vai 
 
 <code> python create_alunos.py </code> <br>
 
+Também devemos criar um usuário admin que vai servir para dar acesso ao menbros da equipe: <br>
+
+<code> python manger.py createsuperuser </code> <br>
+
 após executar o script podemos iniciar a aplicação com o comando: <br>
 
 <code> python manage.py runserver </code>
