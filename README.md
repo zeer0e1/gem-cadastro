@@ -37,10 +37,13 @@ Antes de iniciar aplicação podemos executar um script feito em python que vai 
 
 <code> python create_alunos.py </code> <br>
 
-Também devemos criar um usuário admin que vai servir para dar acesso ao menbros da equipe: <br>
+Também devemos criar um usuário admin que vai servir para acessar a area administrativa do djang,para realizar esse cadastro basta executar o comando abaixo e seguir as instruções da tela: <br>
 
 <code> python manger.py createsuperuser </code> <br>
 
-após executar o script podemos iniciar a aplicação com o comando: <br>
+após criar o usuário podemos estar iniciando a aplicação: <br>
 
 <code> python manage.py runserver </code>
+## Como utilizar
+Ao iniciar a aplicação o usuário será direcionado para a tela de login:
+
