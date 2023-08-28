@@ -45,5 +45,28 @@ após criar o usuário podemos estar iniciando a aplicação: <br>
 
 <code> python manage.py runserver </code>
 ## Como utilizar
-Ao iniciar a aplicação o usuário será direcionado para a tela de login:
+Ao iniciar a aplicação o usuário será direcionado para a tela de login: <br>
+<img alt="login" src="/images_markdown/login.png">
+
+Podendo realizar um login caso já tenha um usuário ou criar um, caso o usuário não tenha um login ele pode clicar em Registar e realizar o cadastro: <br>
+<img alt="cadastro" src="/images_markdown/cadastro_instrutor.png">
+<img alt="lista de alunos" src="/images_markdown/lista.png">
+
+Após realizar o cadastro o usuário vai poder acessar a página principal onde contem os gráficos e a página de listagem de alunos: >br>
+<img alt="gafricos" src="/images_markdown/tela_inicial.png" >
+
+## Liberação de acesso 
+Por questão de segurança algumas páginas da aplicação só podem ser acessadas após a liberação do usuário como membro da equipe, para realizar isso o usuário deve seguir o passo a passo abaixo:
+1- Acessar a página admin do django pelo link: <br>
+
+<code> http://127.0.0.1:8000/admin/ </code>
+> para acessar a página deve-se utilizar o usuário criando no inicio da aplicação
+
+2- Acessar a área administrativa e clicar na opções usuários: <br>
+<img alt="usuarios" src="/images_markdown/user_admin.png">
+
+3- Selecionar o usuário e marcar a seleção onde está escrito "Membro da equipe": <br>
+<img alt="usuarios" src="/images_markdown/menbro.png">
+
+# Esse passo a passo também pode ser baixado através do link:
 
