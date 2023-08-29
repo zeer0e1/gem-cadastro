@@ -69,7 +69,11 @@ Por questão de segurança algumas páginas da aplicação só podem ser acessad
 ![imagem1](images_markdown/user_admin.png)
 
 
-3- Selecionar o usuário e marcar a seleção onde está escrito "Membro da equipe": <br>
+3- Selecionar o usuário e marque a seleção onde está escrito "Membro da equipe": <br>
 
 ![imagem1](images_markdown/menbro.png)
+
+após isso o usuário ira poder acessar as páginas de cadastro do aluno e poder verificar os dados do aluno através do ID da página de listagem.
+
+
 
