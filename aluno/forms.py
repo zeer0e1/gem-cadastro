@@ -38,6 +38,7 @@ class AlunoForm(forms.ModelForm):
 
 class RegisterForm(UserCreationForm):
     first_name = forms.CharField(
+        label='Primeiro Nome',
         min_length=2,
         max_length=30,
         required=True,
@@ -47,6 +48,7 @@ class RegisterForm(UserCreationForm):
         }
     )
     last_name = forms.CharField(
+        label='Segundo nome',
         min_length=2,
         max_length=30,
         required=True,
@@ -54,7 +56,7 @@ class RegisterForm(UserCreationForm):
     )
 
     password1 = forms.CharField(
-        label="Password",
+        label="Senha",
         strip=False,
         widget=forms.PasswordInput(attrs={"autocomplete": "new-password"}),
         help_text=password_validation.password_validators_help_text_html(),
@@ -62,7 +64,7 @@ class RegisterForm(UserCreationForm):
     )
 
     password2 = forms.CharField(
-        label="Password 2",
+        label="Repita a senha",
         strip=False,
         widget=forms.PasswordInput(attrs={"autocomplete": "new-password"}),
         help_text='Use the same password as before.',
