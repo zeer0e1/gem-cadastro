@@ -37,7 +37,7 @@ Antes de iniciar aplicação podemos executar um script feito em python que vai 
 
 <code> python create_alunos.py </code> <br>
 
-Também devemos criar um usuário admin que vai servir para acessar a area administrativa do djang,para realizar esse cadastro basta executar o comando abaixo e seguir as instruções da tela: <br>
+Também devemos criar um usuário admin que vai servir para acessar a area administrativa do django,para realizar esse cadastro basta executar o comando abaixo e seguir as instruções da tela: <br>
 
 <code> python manger.py createsuperuser </code> <br>
 
