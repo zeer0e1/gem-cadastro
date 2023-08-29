@@ -75,5 +75,7 @@ Por questão de segurança algumas páginas da aplicação só podem ser acessad
 
 após isso o usuário ira poder acessar as páginas de cadastro do aluno e poder verificar os dados do aluno através do ID da página de listagem.
 
+### Essa documentação também está disponível através do link:
+[README](/README.pdf)
 
 
