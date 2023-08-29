@@ -78,4 +78,5 @@ após isso o usuário ira poder acessar as páginas de cadastro do aluno e poder
 ### Essa documentação também está disponível através do link:
 [README](/README.pdf)
 
-
+### Essa documentação também está disponível no formato PDF:
+[Link de acesso](/README.pdf)
