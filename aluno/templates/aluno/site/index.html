@@ -45,24 +45,7 @@
                 }
                 ]
             });
-            chart2.render();
-
-            var chart3 = new CanvasJS.Chart("chartContainer3", {
-                theme: "light2", // "light2", "dark1", "dark2"
-                exportEnabled: true,
-                animationEnabled: true,
-                title: {
-                  text: "Monthly Expenses"
-                },
-                data: [{
-                  type: "pie",
-                  legendText: "{label}",
-                  yValueFormatString: "#,###\"%\"",
-                  indexLabel: "{label} ({y})",
-                  dataPoints: {{ alunosPorInstrumento|safe }}
-                }]
-              });
-              chart3.render();
+           
 
         
         }
